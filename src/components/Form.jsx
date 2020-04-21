@@ -2,15 +2,14 @@ import React, { useContext, useState } from 'react'
 import { TodoContext } from '../contexts';
 
 function Form() {
-    const context = useContext(TodoContext);
-    const dispatch = context.dispatch;
+    const { actions } = useContext(TodoContext);
     const [formState, setstate] = useState({ title: '', desc: '' });
     const onChangeInput = (event) => {
         setstate({ ...formState, [event.target.name]: event.target.value })
     }
     const onSubmitForm = (event) => {
         event.preventDefault();
-        dispatch({ type: 'ADD_NEW', payload: { item: formState } });
+        actions.addNewTodo(formState);
         setstate({ title: '', desc: '' })
     }
     return (

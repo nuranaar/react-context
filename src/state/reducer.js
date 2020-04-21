@@ -1,3 +1,4 @@
+import { ADD_NEW } from "./types";
 
 
 export const todoState = {
@@ -8,16 +9,16 @@ export const todoState = {
             date: '20.04.2020'
         }
     ]
-}
+};
 
 
 export default (state, { type, payload }) => {
     switch (type) {
-        case 'ADD_NEW':
+        case ADD_NEW:
             return {
                 todoList: [
                     ...state.todoList,
-                    { ...payload.item }
+                    payload
                 ]
             };
         default:
