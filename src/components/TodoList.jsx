@@ -4,11 +4,10 @@ import { TodoContext } from '../contexts';
 
 function TodoList() {
     const context = useContext(TodoContext);
-    const list = context.list;
     return (
         <ul>
             {
-                list.map((item, index) =>
+                context.map((item, index) =>
                     <TodoItem key={index} item={item} />
                 )
             }
