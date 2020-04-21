@@ -7,7 +7,7 @@ function TodoList() {
     return (
         <ul>
             {
-                context.map((item, index) =>
+                context.state.map((item, index) =>
                     <TodoItem key={index} item={item} />
                 )
             }

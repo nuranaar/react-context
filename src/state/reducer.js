@@ -15,10 +15,10 @@ export default (state, { type, payload }) => {
     switch (type) {
         case 'ADD_NEW':
             return {
-                todoList: {
+                todoList: [
                     ...state.todoList,
-                    payload
-                }
+                    { ...payload.item }
+                ]
             };
         default:
             return state;

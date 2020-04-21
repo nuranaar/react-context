@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
+import React, { useReducer } from 'react';
 import './App.css';
 import Form from './components/Form';
 import TodoList from './components/TodoList';
 import { TodoContext } from './contexts';
-import { todoState } from './state/reduser';
+import reducer from './state/reducer.js'
+import { todoState } from './state/reducer';
 
 function App() {
+  const [state, dispatch] = useReducer(reducer, todoState)
   return (
-    <TodoContext.Provider value={todoState.todoList}>
+    <TodoContext.Provider value={{ state: state.todoList, dispatch: dispatch }}>
       <Form />
       <TodoList />
     </TodoContext.Provider >
